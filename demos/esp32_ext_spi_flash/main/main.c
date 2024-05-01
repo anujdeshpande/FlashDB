@@ -68,8 +68,8 @@ int flashdb_demo(void)
         s_lock = xSemaphoreCreateCounting(1, 1);
         assert(s_lock != NULL);
     }
-
-#ifdef FDB_USING_KVDB
+    /* return 0; */
+#ifndef FDB_USING_KVDB
     { /* KVDB Sample */
         struct fdb_default_kv default_kv;
 
@@ -154,12 +154,12 @@ void app_main()
 
     flashdb_demo();
 
-    for (int i = 1000; i >= 0; i--)
-    {
-        printf("Restarting in %d seconds...\n", i);
-        vTaskDelay(1000 / portTICK_PERIOD_MS);
-    }
-    printf("Restarting now.\n");
-    fflush(stdout);
-    esp_restart();
+    /* for (int i = 1000; i >= 0; i--) */
+    /* { */
+    /*     printf("Restarting in %d seconds...\n", i); */
+    /*     vTaskDelay(1000 / portTICK_PERIOD_MS); */
+    /* } */
+    /* printf("Restarting now.\n"); */
+    /* fflush(stdout); */
+    /* esp_restart(); */
 }

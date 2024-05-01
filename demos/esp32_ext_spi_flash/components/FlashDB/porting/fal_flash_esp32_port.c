@@ -18,7 +18,6 @@
 
 static SemaphoreHandle_t s_lock = NULL;
 
-/* const static esp_partition_t *partition; */
 static sfud_flash* sfud_dev = NULL;
 
 #define LOCK()                                 \
@@ -46,7 +45,8 @@ static int init(void)
         assert(s_lock != NULL);
     }
 #endif
-    const sfud_flash *flash = sfud_get_device_table() + 0;
+    sfud_flash *flash = sfud_get_device_table() + 0;
+    sfud_device_init(flash);
     sfud_dev = flash;
     if (NULL == sfud_dev)
     {
@@ -101,7 +101,7 @@ static int erase(long offset, size_t size)
 struct fal_flash_dev nor_flash0 =
     {
         .name = NOR_FLASH_DEV_NAME,
-        .addr = 0x0,                      // address is relative to beginning of partition; 0x0 is start of the partition
+        .addr = 0,                      // address is relative to beginning of partition; 0x0 is start of the partition
         .len = 8*1024*1024,                 // size of the partition as specified in partitions.csv
         .blk_size = FLASH_ERASE_MIN_SIZE, // must be 4096 bytes
         .ops = {init, read, write, erase},
