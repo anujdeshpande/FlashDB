@@ -105,5 +105,5 @@ struct fal_flash_dev nor_flash0 =
         .len = 8*1024*1024,                 // size of the partition as specified in partitions.csv
         .blk_size = FLASH_ERASE_MIN_SIZE, // must be 4096 bytes
         .ops = {init, read, write, erase},
-        .write_gran = 64, // 1 byte write granularity
+        .write_gran = 1, // 1 byte write granularity
 };
