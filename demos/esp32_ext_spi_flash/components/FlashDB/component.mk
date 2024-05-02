@@ -3,13 +3,13 @@
 #
 COMPONENT_ADD_INCLUDEDIRS += \
 	inc \
-	../../../../inc \
-	../../../../port/fal/inc
+	./flashdb/inc \
+	./fal/inc
 
 COMPONENT_SRCDIRS += \
-	../../../../src \
-	../../../../samples \
-	../../../../port/fal/src \
+	./flashdb/src \
+	./flashdb/samples \
+	./fal/src \
 	porting
 
 
