@@ -52,7 +52,9 @@ void tsdb_sample(fdb_tsdb_t tsdb)
 
         status.temp = 38;
         status.humi = 90;
-        fdb_tsl_append(tsdb, fdb_blob_make(&blob, &status, sizeof(status)));
+	for (int i = 0 ; i < 1000; i++)
+	    fdb_tsl_append(tsdb, fdb_blob_make(&blob, &status, sizeof(status)));
+	
         FDB_INFO("append the new status.temp (%d) and status.humi (%d)\n", status.temp, status.humi);
     }
 
