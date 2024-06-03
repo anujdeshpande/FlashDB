@@ -2,7 +2,7 @@
 # Component Makefile
 #
 COMPONENT_ADD_INCLUDEDIRS += \
-	inc \
+	port_inc \
 	../../../../inc \
 	../../../../port/fal/inc
 
