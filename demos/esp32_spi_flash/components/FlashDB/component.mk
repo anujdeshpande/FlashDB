@@ -2,14 +2,14 @@
 # Component Makefile
 #
 COMPONENT_ADD_INCLUDEDIRS += \
-	port_inc \
-	../../../../inc \
-	../../../../port/fal/inc
+	flashdb/inc \
+	inc \
+	fal/inc
 
 COMPONENT_SRCDIRS += \
-	../../../../src \
-	../../../../samples \
-	../../../../port/fal/src \
+	flashdb/src \
+	flashdb/samples \
+	fal/src \
 	porting
 
 
